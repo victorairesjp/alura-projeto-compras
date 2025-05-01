@@ -36,6 +36,6 @@ public class Produto {
 
     @Override
     public String toString() {
-        return "Produto: " + this.nome + " - Valor: R$ " + this.preco;
+        return "Produto: " + this.nome + " | Valor: R$ " + this.preco;
     }
 }
