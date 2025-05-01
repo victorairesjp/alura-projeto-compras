@@ -1,5 +1,4 @@
 package edu.alura.modelos;
-
 public class Cartao {
 
     private double valorLimite;
@@ -12,5 +11,7 @@ public class Cartao {
         this.valorLimite = limite;
     }
 
-    
+    public double calcularSaldo(double valorCompra) {
+        return valorLimite - valorCompra;
+    }
 }
