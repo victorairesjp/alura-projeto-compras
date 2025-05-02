@@ -21,20 +21,22 @@ public class App {
         double totalGasto = 0;
         double saldo = cartao1.getValorLimite();
 
-        while (totalGasto <= saldo) {
+        while (saldo > 0) {
             System.out.println("Digite aqui o produto que deseja comprar: ");
             String nomeProduto = scanner.next();
             System.out.println("Digite aqui o valor do produto: ");
             double precoProduto = scanner.nextDouble();
             Produto produto = new Produto(nomeProduto, precoProduto);
-            totalGasto += produto.getPreco();
-            if (totalGasto <= precoProduto) {
+
+            if (precoProduto <= saldo) {
                 listaCompras.add(new Produto(produto.getNome(), produto.getPreco()));
+                totalGasto += produto.getPreco();
                 saldo = cartao1.calcularSaldo(totalGasto);
                 System.out.println("Seu novo saldo é de R$ " + saldo);
             }
             else {
-                System.out.println("Você não pode mais gastar!");
+                System.out.println("Você não pode fazer essa compra por insuficiência de saldo.");
+                break;
             }
         }
 
