@@ -32,7 +32,26 @@ public class App {
                 listaCompras.add(new Produto(produto.getNome(), produto.getPreco()));
                 totalGasto += produto.getPreco();
                 saldo = cartao1.calcularSaldo(totalGasto);
+                System.out.println("Compra realizada!");
                 System.out.println("Seu novo saldo é de R$ " + saldo);
+
+                int opcao;
+                while (true) {
+                    System.out.println("Digite 0 para sair ou 1 para continuar: ");
+                    opcao = scanner.nextInt();
+
+                    if (opcao == 0) {
+                        System.out.println("Compras realizadas: " + listaCompras.toString());
+                        System.out.println("Valor gasto: R$ " + totalGasto);
+                        return;
+                    } 
+                    else if (opcao == 1) {
+                        break;
+                    }
+                    else {
+                        System.out.println("Opção inválida. Tente novamente.");
+                    }
+                }
             }
             else {
                 System.out.println("Você não pode fazer essa compra por insuficiência de saldo.");
@@ -42,6 +61,7 @@ public class App {
 
         System.out.println("Compras realizadas: " + listaCompras.toString());
         System.out.println("Valor gasto: R$ " + totalGasto);
+        System.out.println("Seu novo saldo é de R$ " + saldo);
 
         scanner.close();
     }
